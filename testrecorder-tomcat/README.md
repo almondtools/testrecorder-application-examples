@@ -18,5 +18,6 @@ After startup navigate to your application, e.g. `localhost:8080/testrecorder-to
 
 
 You may then experiment with url parameters, e.g.:
-* `?action=add&id=5&name=Postmortem`
+* `?action=add&name=Take the dog out`
+* `?action=insert&id=2&name=Wake up the children`
 * `?action=remove&id=1`

@@ -1,20 +1,22 @@
 package net.amygdalum.testrecorder.appexamples.tomcat.servlet;
 
-public class Remove implements Action {
+public class Insert implements Action {
 
 	private TodoList list;
 	private Integer id;
+	private String name;
 
-	public Remove(TodoList list, String id) {
+	public Insert(TodoList list, String id, String name) {
 		this.list = list;
 		this.id = Integer.parseInt(id);
+		this.name = name;
 	}
 
 	@Override
 	public String execute() {
-		String name = list.remove(id);
-
-		return "removed " + id + ":\t " + name;  
+		list.insert(id, name);
+		
+		return "inserted " + id + ":\t " + name;  
 	}
 
 }

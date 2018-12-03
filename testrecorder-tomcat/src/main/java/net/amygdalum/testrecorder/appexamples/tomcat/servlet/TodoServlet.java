@@ -21,9 +21,20 @@ public class TodoServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Action action = dispatchAction(req);
 
+		String msg = action.execute();
+
 		StringBuilder response = new StringBuilder();
 
-		action.execute(response);
+		response.append("<html><body>");
+		response.append("<div>").append(msg).append("</div>");
+		response.append("<ul>");
+		for (TodoItem item : list.items()) {
+			response.append("<li>");
+			response.append(item.getId()).append("\t").append(item.getName()).append("<a href=\"?action=delete&id=" + item.getId() + "\">-</a>");
+			response.append("</li>");
+		}
+		response.append("</ul>");
+		response.append("</body></html>");
 
 		resp.getWriter().write(response.toString());
 	}
@@ -32,15 +43,18 @@ public class TodoServlet extends HttpServlet {
 		String action = req.getParameter("action");
 		if (action == null) {
 			return new Init(list);
-		} else if (action.equals("add")) {
+		} else if (action.equals("insert")) {
 			String id = req.getParameter("id");
 			String name = req.getParameter("name");
-			return new Add(list, id, name);
+			return new Insert(list, id, name);
+		} else if (action.equals("add")) {
+			String name = req.getParameter("name");
+			return new Add(list, name);
 		} else if (action.equals("remove")) {
 			String id = req.getParameter("id");
 			return new Remove(list, id);
 		} else {
-			return new Show(list);
+			return new Nothing(list);
 		}
 	}
 
