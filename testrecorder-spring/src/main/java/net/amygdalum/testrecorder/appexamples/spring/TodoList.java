@@ -9,12 +9,14 @@ import java.util.stream.StreamSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import net.amygdalum.testrecorder.profile.Facade;
 import net.amygdalum.testrecorder.profile.Recorded;
 
 @Component
 public class TodoList {
 
 	@Autowired
+	@Facade
 	private TodoItemRepository items;
 	
 	public TodoList() {

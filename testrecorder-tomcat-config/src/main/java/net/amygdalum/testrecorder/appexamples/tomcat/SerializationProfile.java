@@ -11,7 +11,7 @@ public class SerializationProfile extends DefaultSerializationProfile {
 
     @Override
     public List<Classes> getClasses() {
-        return asList(Classes.byPackage("com.almondtools.testrecorder.appexamples.tomcat"));
+        return asList(Classes.byPackage("net.amygdalum.testrecorder.appexamples.tomcat"));
     }
 
 }

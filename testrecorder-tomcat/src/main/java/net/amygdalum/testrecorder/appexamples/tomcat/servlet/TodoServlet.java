@@ -30,7 +30,7 @@ public class TodoServlet extends HttpServlet {
 		response.append("<ul>");
 		for (TodoItem item : list.items()) {
 			response.append("<li>");
-			response.append(item.getId()).append("\t").append(item.getName()).append("<a href=\"?action=delete&id=" + item.getId() + "\">-</a>");
+			response.append(item.getId()).append("\t").append(item.getName()).append(" <a href=\"?action=remove&id=" + item.getId() + "\">-</a>");
 			response.append("</li>");
 		}
 		response.append("</ul>");
