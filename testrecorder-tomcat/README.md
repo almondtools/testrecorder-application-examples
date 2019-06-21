@@ -2,6 +2,11 @@
 
 This is an example servlet deployable to a tomcat with servlet specification 3.0.
 
+Prerequisites:
+* clone `testrecorder-app-examples` (this project) into your workspace
+* import `testrecorder-tomcat` into your workspace and run `mvn install`
+* import `testrecorder-tomcat-config` into your workspace `mvn install`
+
 Configure your tomcat
 * add the following to the tomcat class path: `<path\to\testrecorder-tomcat-config>\target\classes`
 * add the following to tomcat start arguments: `-javaagent:<path\to\repositorylocation>\testrecorder-agent-<version>-agent.jar=<path\to\testrecorder-tomcat-config>\src\main\config\agentconfig`
